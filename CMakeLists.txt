@@ -6,6 +6,8 @@ project(libplist LANGUAGES C CXX)
 ###  cnary library - internal only
 #######################################################
 
+find_package(Threads REQUIRED)
+
 add_library(cnary STATIC)
 
 target_sources(cnary
@@ -61,7 +63,7 @@ target_include_directories(plist
 
 target_compile_definitions(plist PRIVATE HAVE_STRNDUP HAVE_FVISIBILITY)
 
-target_link_libraries(plist PRIVATE cnary)
+target_link_libraries(plist PRIVATE cnary Threads::Threads)
 
 set_target_properties(plist PROPERTIES 
     VERSION 3.3.0
