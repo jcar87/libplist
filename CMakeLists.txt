@@ -91,7 +91,7 @@ target_sources(plist++
         src/Uid.cpp 
     )
 
-target_link_libraries(plist++ PUBLIC plist-2.0)
+target_link_libraries(plist++ PUBLIC plist)
 
 target_include_directories(plist++
     PUBLIC
