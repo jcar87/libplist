@@ -63,7 +63,7 @@ target_include_directories(plist
 
 target_compile_definitions(plist PRIVATE HAVE_STRNDUP HAVE_FVISIBILITY)
 
-target_link_libraries(plist PRIVATE cnary Threads::Threads)
+target_link_libraries(plist PRIVATE cnary Threads::Threads m)
 
 set_target_properties(plist PROPERTIES 
     VERSION 3.3.0
