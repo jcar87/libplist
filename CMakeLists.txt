@@ -107,7 +107,7 @@ set_target_properties(plist++ PROPERTIES
 ###  install
 #######################################################
 
-install(TARGETS plist-2.0 plist++
+install(TARGETS plist plist++
         EXPORT libplist-targets
         LIBRARY DESTINATION lib
 )
