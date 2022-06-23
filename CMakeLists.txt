@@ -26,9 +26,9 @@ target_include_directories(cnary
 ###  plist C library
 #######################################################
 
-add_library(plist-2.0 SHARED)
+add_library(plist SHARED)
 
-target_sources(plist-2.0
+target_sources(plist
     PRIVATE
         src/base64.c
         src/base64.h
@@ -51,7 +51,7 @@ target_sources(plist-2.0
         src/plist.h
 )
 
-target_include_directories(plist-2.0
+target_include_directories(plist
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include/>
@@ -59,11 +59,11 @@ target_include_directories(plist-2.0
         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src>
 )
 
-target_compile_definitions(plist-2.0 PRIVATE HAVE_STRNDUP)
+target_compile_definitions(plist PRIVATE HAVE_STRNDUP)
 
-target_link_libraries(plist-2.0 PRIVATE cnary)
+target_link_libraries(plist PRIVATE cnary)
 
-set_target_properties(plist-2.0 PROPERTIES 
+set_target_properties(plist PROPERTIES 
     VERSION 3.3.0
     SOVERSION 3 
     C_VISIBILITY_PRESET hidden)
@@ -73,9 +73,9 @@ set_target_properties(plist-2.0 PROPERTIES
 ###  plist C++ library
 #######################################################
 
-add_library(plist++-2.0 SHARED)
+add_library(plist++ SHARED)
 
-target_sources(plist++-2.0
+target_sources(plist++
     PRIVATE
         src/Node.cpp
         src/Structure.cpp
@@ -91,29 +91,29 @@ target_sources(plist++-2.0
         src/Uid.cpp 
     )
 
-target_link_libraries(plist++-2.0 PUBLIC plist-2.0)
+target_link_libraries(plist++ PUBLIC plist-2.0)
 
-target_include_directories(plist++-2.0
+target_include_directories(plist++
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include/>
 )
 
-set_target_properties(plist++-2.0 PROPERTIES 
+set_target_properties(plist++ PROPERTIES 
     VERSION 3.3.0
-    SOVERSION 3 
-    CXX_VISIBILITY_PRESET hidden)
+    SOVERSION 3)
 
 #######################################################
 ###  install
 #######################################################
 
-install(TARGETS plist-2.0 plist++-2.0
+install(TARGETS plist-2.0 plist++
         EXPORT libplist-targets
         LIBRARY DESTINATION lib
 )
 
 install(EXPORT libplist-targets
+        NAMESPACE plist-2.0
         FILE libplist-targets.cmake
         DESTINATION lib/cmake/libplist
 )
