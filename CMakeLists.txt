@@ -67,7 +67,8 @@ target_link_libraries(plist PRIVATE cnary Threads::Threads)
 
 set_target_properties(plist PROPERTIES 
     VERSION 3.3.0
-    SOVERSION 3 
+    SOVERSION 3
+    OUTPUT_NAME plist-2.0
     C_VISIBILITY_PRESET hidden)
 
 
@@ -103,6 +104,7 @@ target_include_directories(plist++
 
 set_target_properties(plist++ PROPERTIES 
     VERSION 3.3.0
+    OUTPUT_NAME plist++-2.0
     SOVERSION 3)
 
 #######################################################
