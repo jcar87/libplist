@@ -59,7 +59,7 @@ target_include_directories(plist
         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src>
 )
 
-target_compile_definitions(plist PRIVATE HAVE_STRNDUP)
+target_compile_definitions(plist PRIVATE HAVE_STRNDUP HAVE_FVISIBILITY)
 
 target_link_libraries(plist PRIVATE cnary)
 
