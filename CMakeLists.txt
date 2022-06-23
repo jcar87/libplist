@@ -113,7 +113,7 @@ install(TARGETS plist plist++
 )
 
 install(EXPORT libplist-targets
-        NAMESPACE plist-2.0
+        NAMESPACE plist-2.0::
         FILE libplist-targets.cmake
         DESTINATION lib/cmake/libplist
 )
